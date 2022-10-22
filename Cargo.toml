@@ -13,7 +13,7 @@ license = "MIT OR Apache-2.0"
 name = "yew-infinite-for"
 publish = true
 repository = "https://github.com/1216892614/Yew-InfiniteFor.rs"
-version = "0.1.1"
+version = "0.1.2"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [build]
