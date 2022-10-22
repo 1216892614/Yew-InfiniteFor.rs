@@ -76,4 +76,4 @@
 
 # ⚖️开源协议⚖️
 
-`Yew-Canvas.rs` 是基于 MIT license 和 the Apache License (Version 2.0) 双协议开源, 使用其中你喜欢的协议来进行开发吧!
+`Yew-InfiniteFor.rs` 是基于 MIT license 和 the Apache License (Version 2.0) 双协议开源, 使用其中你喜欢的协议来进行开发吧!

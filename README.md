@@ -77,4 +77,4 @@ Just 3 Simple steps, do like this:
 
 # ⚖️License⚖️
 
-`Yew-Canvas.rs` is dual licensed under the MIT license and the Apache License (Version 2.0).
+`Yew-InfiniteFor.rs` is dual licensed under the MIT license and the Apache License (Version 2.0).
