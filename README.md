@@ -4,7 +4,7 @@
 
 `Yew-InfiniteFor.rs` is a list component that scrolls infinitely for Yew.
 
-# 🔥What's the height-light🔥
+# 🔥What's the highlight🔥
 
 -   It support function_component style!
 -   It can smart change how many items render in once by view size.
