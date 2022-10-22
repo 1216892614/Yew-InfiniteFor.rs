@@ -1,6 +1,6 @@
 # ✨Yew-InfiniteFor.rs✨
 
-[中文](./README-zh.md)
+[中文](https://github.com/1216892614/Yew-InfiniteFor.rs/blob/main/README-zh.md)
 
 `Yew-InfiniteFor.rs` is a list component that scrolls infinitely for Yew.
 

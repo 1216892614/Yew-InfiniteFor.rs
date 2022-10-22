@@ -1,22 +1,26 @@
 [package]
-name = "yew-infinite-for"
-version = "0.1.0"
-edition = "2021"
-authors=["Nerd <hndppt@outlook.com>"]
-description="A list component that scrolls infinitely for Yew.."
-license="MIT OR Apache-2.0"
-keywords=["yew", "wasm", "infinite", "lazy", "list"]
-categories=[
-    "wasm",
+authors = ["Nerd <hndppt@outlook.com>"]
+categories = [
+  "wasm",
+  "GUI",
+  "Template engine",
+  "Web programming",
 ]
-publish=false
+description = "A list component that scrolls infinitely for Yew.."
+edition = "2021"
+keywords = ["yew", "wasm", "web", "lazy", "list"]
+license = "MIT OR Apache-2.0"
+name = "yew-infinite-for"
+publish = true
+repository = "https://github.com/1216892614/Yew-InfiniteFor.rs"
+version = "0.1.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [build]
-target="wasm32-unknown-unknown"
+target = "wasm32-unknown-unknown"
 
 [dependencies]
-yew="0.19"
+yew = "0.19"
 
 [dependencies.web-sys]
 features = ["HtmlInputElement", "HtmlDivElement"]
