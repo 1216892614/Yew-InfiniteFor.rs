@@ -72,7 +72,7 @@ Just 3 Simple steps, do like this:
 # 👌Run Exmple👌
 
 0. This requires you to set up the `Yew.rs` development environment in advance, the following is a `Trunk` packaging example:
-1. `cd ./example/base-use`
+1. `cd ./examples/base-use`
 2. `trunk server`
 
 # ⚖️License⚖️
