@@ -615,7 +615,7 @@ dependencies = [
 
 [[package]]
 name = "yew-infinite-for"
-version = "0.1.0"
+version = "0.1.2"
 dependencies = [
  "web-sys",
  "yew",

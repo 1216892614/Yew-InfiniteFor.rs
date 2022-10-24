@@ -1,7 +1,7 @@
 use web_sys::HtmlDivElement;
 use yew::prelude::*;
 
-static mut RENDER_LIST: Option<Html> = None;
+static mut RENDER_LIST: Vec<Html> = Vec::new();
 
 #[derive(Debug, Clone, PartialEq, Properties)]
 pub struct Props {
@@ -21,7 +21,7 @@ pub struct Props {
 /// Generally this is not a problem in other components.
 /// If you plan to put `InfiniteFor` directly in the
 /// `body`, you can use a style like this:
-/// 
+///
 /// ```ignore
 /// html! {
 ///     <div
@@ -38,9 +38,9 @@ pub struct Props {
 ///     </div>
 /// }
 /// ```
-/// 
+///
 /// # Example
-/// 
+///
 /// ```ignore
 /// #[function_component(App)]
 /// fn app() -> Html {
@@ -51,7 +51,7 @@ pub struct Props {
 ///             </h1>
 ///         ))
 ///     });
-/// 
+///
 ///     html! {
 ///         <InfiniteFor
 ///             // use this attribute to switch mode from column to row
@@ -101,20 +101,16 @@ pub fn infinite_for(props: &Props) -> Html {
     let list_ref = NodeRef::default();
     let loading_block_ref = NodeRef::default();
 
-    let list_pust = {
+    let list_push = {
         Callback::from(move |item: Html| unsafe {
-            RENDER_LIST = Some(
-                [RENDER_LIST.clone().unwrap_or(html!(<></>)), item]
-                    .into_iter()
-                    .collect(),
-            )
+            RENDER_LIST.push(item);
         })
     };
 
     {
         let list_ref = list_ref.clone();
         let request = request.clone();
-        let list_pust = list_pust.clone();
+        let list_push = list_push.clone();
         let list_state = list_state.clone();
         let request_number_state = request_number_state.clone();
         let request_times_state = request_times_state.clone();
@@ -130,8 +126,17 @@ pub fn infinite_for(props: &Props) -> Html {
 
                 let key = *request_times_state;
 
-                request.emit((key, list_pust));
-                unsafe { list_state.set(RENDER_LIST.clone().unwrap_or(html!(<></>))) }
+                request.emit((key, list_push));
+                unsafe {
+                    list_state.set(
+                        RENDER_LIST
+                            .clone()
+                            .into_iter()
+                            .enumerate()
+                            .map(|(key, i)| html!(<div {key}>{i}</div>))
+                            .collect(),
+                    )
+                }
             }
             || ()
         })
@@ -142,7 +147,7 @@ pub fn infinite_for(props: &Props) -> Html {
         let loading_block_ref = loading_block_ref.clone();
         let is_bottom_state = is_bottom_state.clone();
 
-        let list_pust = list_pust.clone();
+        let list_push = list_push.clone();
         let request = request.clone();
         let list_state = list_state.clone();
         let request_number_state = request_number_state.clone();
@@ -177,8 +182,17 @@ pub fn infinite_for(props: &Props) -> Html {
                 for i in 0..*request_number_state {
                     let key = *request_times_state + i;
 
-                    request.emit((key, list_pust.clone()));
-                    unsafe { list_state.set(RENDER_LIST.clone().unwrap_or(html!(<></>))) }
+                    request.emit((key, list_push.clone()));
+                    unsafe {
+                        list_state.set(
+                            RENDER_LIST
+                                .clone()
+                                .into_iter()
+                                .enumerate()
+                                .map(|(key, i)| html!(<div {key}>{i}</div>))
+                                .collect(),
+                        )
+                    }
                 }
             }
 
